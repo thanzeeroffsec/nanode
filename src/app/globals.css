@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "hacked";
+  src: url("../components/font/HACKED.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "clock";
+  src: url("../components/font//clockfont.ttf");
+}
+body {
+  background: radial-gradient(ellipse at bottom, black, black);
+}
+.glassCard {
+  background: rgba(0, 0, 0, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(40.5px);
+  -webkit-backdrop-filter: blur(4.5px);
+  border-radius: 10px;
+  margin: 10px 0;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+.test {
+  color: rgb(255, 255, 0);
+}
+
+@layer utilities {
+  .hacked-font {
+    font-family: hacked, sans-serif;
+  }
+  .clock-font {
+    font-family: clock, sans-serif;
+  }
+}
