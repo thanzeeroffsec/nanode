@@ -1,13 +1,8 @@
-import CanvasComponent from "@/components/CanvasComponent";
 import StarrySky from "@/components/StarrySky";
 import ZoneSection from "@/components/ZoneSection";
-import discord from "/discord.svg";
 import { Button } from "@/components/ui/moving-border";
-
 import Image from "next/image";
 import Link from "next/link";
-import { FaWhatsapp, FaDiscord } from "react-icons/fa";
-import { IoLogoInstagram } from "react-icons/io";
 
 export default function Home() {
   return (
@@ -28,7 +23,7 @@ export default function Home() {
           {/* top part section start */}
           <section className="h-[400px] mt-32   flex items-center flex-col ">
             <div className=" h-full w-full flex  items-center    ">
-              <div className="w-[60%]">
+              <div className="w-[90%] sm:w-[60%]">
                 <h1 className="text-3xl font-bold tracking-wider sm:text-5xl hacked-font text-yellow-400">
                   nanode <br />
                   Hardware Village
@@ -58,7 +53,7 @@ export default function Home() {
         </div>
 
         <div className="w-full relative overflow-hidden h-[100%] ">
-          <CanvasComponent />
+          {/* <CanvasComponent /> */}
 
           <div className="md:w-[80vw] w-[90%] m-auto h-full ">
             {/* second section start */}
@@ -96,17 +91,15 @@ export default function Home() {
                     Event Details
                   </h3>
                   <p className="font-mono leading-6 text-lg">
-                    Hakxite hackathon is a 3-day online event where developers
-                    can collaborate and build projects using the Vercel
-                    platform. Participants will have the opportunity to create
-                    web applications, APIs, and more, and showcase their work to
-                    the community.
+                    Are you passionate about hardware and technology? 💻 Do you
+                    have innovative ideas that could revolutionize the tech
+                    industry? 💡 Then we've got thrilling news for you! 🎉
                   </p>
-                  <p className="font-mono leading-6 text-lg">
-                    Whether you're a beginner or an experienced developer, the
-                    hackathon is open to everyone. You can work solo or as part
-                    of a team, and you'll have access to resources, tutorials,
-                    and support from the Hakxite team.
+                  <p className="font-mono leading-6 text-lg mt-2">
+                    ARC is proud to announce Nanode the Hardware Village 🏙 - a
+                    unique opportunity for tech enthusiasts, innovators, and
+                    hardware professionals to collaborate, create, and innovate!
+                    🤝
                   </p>
                 </div>
                 {/* <div className="text-yellow-400 w-full lg:w-[50%] text-left mt-10 px-5 lg:mt-0 lg:text-center">
@@ -206,7 +199,7 @@ export default function Home() {
                   </div>
                 </Link>
 
-                <Link href={"http://discord.com"}>
+                <Link href={"https://discord.gg/J7yW6BVsT2"}>
                   <div>
                     <img src="/discord.svg" width={60} height={60} alt="" />
                   </div>
