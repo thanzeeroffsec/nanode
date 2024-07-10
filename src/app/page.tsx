@@ -90,16 +90,17 @@ export default function Home() {
                   <h3 className=" font-bold text-2xl sm:text-4xl font-mono mb-2">
                     Event Details
                   </h3>
+                  <h1 className="text-yellow-400 text-xl font-semibold mt-5 mb-5">
+                    Welcome to NanoDe - Your Gateway to Hardware Innovation!
+                  </h1>
                   <p className="font-mono leading-6 text-lg">
-                    Are you passionate about hardware and technology? 💻 Do you
-                    have innovative ideas that could revolutionize the tech
-                    industry? 💡 Then we've got thrilling news for you! 🎉
-                  </p>
-                  <p className="font-mono leading-6 text-lg mt-2">
-                    ARC is proud to announce Nanode the Hardware Village 🏙 - a
-                    unique opportunity for tech enthusiasts, innovators, and
-                    hardware professionals to collaborate, create, and innovate!
-                    🤝
+                    Join us at NanoDe, where technology enthusiasts and hardware
+                    hackers unite! Dive into hands-on sessions featuring the
+                    latest in hardware hacking devices, master the art of
+                    soldering in our dedicated section, and explore the world of
+                    PC and laptop components. Whether you're a beginner or a
+                    seasoned pro, NanoDe offers something for everyone.
+                    Discover, learn, and upgrade your tech skills with us!
                   </p>
                 </div>
                 {/* <div className="text-yellow-400 w-full lg:w-[50%] text-left mt-10 px-5 lg:mt-0 lg:text-center">
@@ -122,39 +123,6 @@ export default function Home() {
             {/* zones section  */}
 
             <ZoneSection />
-
-            {/* tab section section 1 start*/}
-            {/* <section className="glassCard w-full text-white !p-5  ">
-              <div className=" w-full h-auto text-white text-lg px-5">
-                <h1 className="font-bold text-yellow-400 text-2xl  sm:text-3xl font-mono mb-2">
-                  Section Details
-                </h1>
-
-                <div className="w-full mt-5">
-                  <div className="flex justify-between p-5 rounded-[10px] w-full">
-                    <div className="w-[150px] text-center p-2  border-2 cursor-pointer  ">
-                      sector 1
-                    </div>
-                    <div className="w-[150px] text-center p-2 border-2">
-                      sector 2
-                    </div>
-                    <div className="w-[150px] text-center p-2 border-2">
-                      sector 3
-                    </div>
-                    <div className="w-[150px] text-center p-2 border-2">
-                      sector 4
-                    </div>
-                    <div className="w-[150px] text-center p-2 border-2">
-                      sector 5
-                    </div>
-                    <div className="w-[150px] text-center p-2 border-2">
-                      sector 6
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section> */}
-            {/* tab section section 1 end */}
 
             {/* zones section  */}
             {/* fifth section start */}
