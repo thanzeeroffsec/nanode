@@ -1,7 +1,7 @@
 export const dataContent = [
   {
     id: 1,
-    content: "Hardware hacking tools",
+    content: "Lock Picking ",
   },
   {
     id: 2,
@@ -25,6 +25,6 @@ export const dataContent = [
   },
   {
     id: 7,
-    content: "Lock Picking",
+    content: "Hardware hacking tools",
   },
 ];
