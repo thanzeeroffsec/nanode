@@ -145,53 +145,55 @@ const StarrySky: React.FC = () => {
 
     function update() {
       if (!paused) {
-        context.clearRect(0, 0, width, height);
-        context.fillStyle = "#000000";
-        context.fillRect(0, 0, width, height);
-        context.fill();
+        context?.clearRect(0, 0, width, height);
+        if (context) {
+          context.fillStyle = "#000000";
+          context.fillRect(0, 0, width, height);
+          context.fill();
 
-        for (const star of stars) {
-          star.update();
-          drawStar(star);
-          if (star.x > width) {
-            star.x = 0;
-          }
-          if (star.x < 0) {
-            star.x = width;
-          }
-          if (star.y > height) {
-            star.y = 0;
-          }
-          if (star.y < 0) {
-            star.y = height;
-          }
-        }
-
-        for (const shootingStar of shootingStars) {
-          if (shootingStar.isSpawning) {
-            shootingStar.opacity += shootingStarOpacityDelta;
-            if (shootingStar.opacity >= 1.0) {
-              shootingStar.isSpawning = false;
-              killShootingStar(shootingStar);
+          for (const star of stars) {
+            star.update();
+            drawStar(star);
+            if (star.x > width) {
+              star.x = 0;
+            }
+            if (star.x < 0) {
+              star.x = width;
+            }
+            if (star.y > height) {
+              star.y = 0;
+            }
+            if (star.y < 0) {
+              star.y = height;
             }
           }
-          if (shootingStar.isDying) {
-            shootingStar.opacity -= shootingStarOpacityDelta;
-            if (shootingStar.opacity <= 0.0) {
-              shootingStar.isDying = false;
-              shootingStar.isDead = true;
+
+          for (const shootingStar of shootingStars) {
+            if (shootingStar.isSpawning) {
+              shootingStar.opacity += shootingStarOpacityDelta;
+              if (shootingStar.opacity >= 1.0) {
+                shootingStar.isSpawning = false;
+                killShootingStar(shootingStar);
+              }
+            }
+            if (shootingStar.isDying) {
+              shootingStar.opacity -= shootingStarOpacityDelta;
+              if (shootingStar.opacity <= 0.0) {
+                shootingStar.isDying = false;
+                shootingStar.isDead = true;
+              }
+            }
+            shootingStar.trailLengthDelta += trailLengthDelta;
+            shootingStar.update();
+            if (shootingStar.opacity > 0.0) {
+              drawShootingStar(shootingStar);
             }
           }
-          shootingStar.trailLengthDelta += trailLengthDelta;
-          shootingStar.update();
-          if (shootingStar.opacity > 0.0) {
-            drawShootingStar(shootingStar);
-          }
-        }
 
-        for (let i = shootingStars.length - 1; i >= 0; i--) {
-          if (shootingStars[i].isDead) {
-            shootingStars.splice(i, 1);
+          for (let i = shootingStars.length - 1; i >= 0; i--) {
+            if (shootingStars[i].isDead) {
+              shootingStars.splice(i, 1);
+            }
           }
         }
       }
@@ -199,42 +201,46 @@ const StarrySky: React.FC = () => {
     }
 
     function drawStar(star: Particle) {
-      context.fillStyle = "rgb(255, 221, 157)";
-      context.beginPath();
-      context.arc(star.x, star.y, star.radius, 0, Math.PI * 2, false);
-      context.fill();
+      if (context) {
+        context.fillStyle = "rgb(255, 221, 157)";
+        context.beginPath();
+        context.arc(star.x, star.y, star.radius, 0, Math.PI * 2, false);
+        context.fill();
+      }
     }
 
     function drawShootingStar(p: Particle) {
-      const x = p.x;
-      const y = p.y;
-      const currentTrailLength = maxTrailLength * p.trailLengthDelta;
-      const pos = lineToAngle(x, y, -currentTrailLength, p.getHeading());
+      if (context) {
+        const x = p.x;
+        const y = p.y;
+        const currentTrailLength = maxTrailLength * p.trailLengthDelta;
+        const pos = lineToAngle(x, y, -currentTrailLength, p.getHeading());
 
-      context.fillStyle = `rgba(255, 255, 255, ${p.opacity})`;
-      const starLength = 5;
-      context.beginPath();
-      context.moveTo(x - 1, y + 1);
-      context.lineTo(x, y + starLength);
-      context.lineTo(x + 1, y + 1);
-      context.lineTo(x + starLength, y);
-      context.lineTo(x + 1, y - 1);
-      context.lineTo(x, y + 1);
-      context.lineTo(x, y - starLength);
-      context.lineTo(x - 1, y - 1);
-      context.lineTo(x - starLength, y);
-      context.lineTo(x - 1, y + 1);
-      context.lineTo(x - starLength, y);
-      context.closePath();
-      context.fill();
+        context.fillStyle = `rgba(255, 255, 255, ${p.opacity})`;
+        const starLength = 5;
+        context.beginPath();
+        context.moveTo(x - 1, y + 1);
+        context.lineTo(x, y + starLength);
+        context.lineTo(x + 1, y + 1);
+        context.lineTo(x + starLength, y);
+        context.lineTo(x + 1, y - 1);
+        context.lineTo(x, y + 1);
+        context.lineTo(x, y - starLength);
+        context.lineTo(x - 1, y - 1);
+        context.lineTo(x - starLength, y);
+        context.lineTo(x - 1, y + 1);
+        context.lineTo(x - starLength, y);
+        context.closePath();
+        context.fill();
 
-      context.fillStyle = `rgba(255, 221, 157, ${p.opacity})`;
-      context.beginPath();
-      context.moveTo(x - 1, y - 1);
-      context.lineTo(pos.x, pos.y);
-      context.lineTo(x + 1, y + 1);
-      context.closePath();
-      context.fill();
+        context.fillStyle = `rgba(255, 221, 157, ${p.opacity})`;
+        context.beginPath();
+        context.moveTo(x - 1, y - 1);
+        context.lineTo(pos.x, pos.y);
+        context.lineTo(x + 1, y + 1);
+        context.closePath();
+        context.fill();
+      }
     }
 
     update();
