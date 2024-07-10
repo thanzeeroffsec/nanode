@@ -13,8 +13,13 @@ const ZoneSection: React.FC = () => {
 
       <ZoneCard
         zone={"zone1"}
-        title={`sector 1 & 2`}
+        title={`sector 1`}
         content={dataContent[0].content}
+      />
+      <ZoneCard
+        zone={"zone8"}
+        title={`sector 2`}
+        content={dataContent[6].content}
       />
       <ZoneCard
         zone={"zone2"}

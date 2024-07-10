@@ -23,4 +23,8 @@ export const dataContent = [
     id: 6,
     content: "Hardware Exibition (Labtop, Mobile,PC)",
   },
+  {
+    id: 7,
+    content: "Lock Picking",
+  },
 ];
